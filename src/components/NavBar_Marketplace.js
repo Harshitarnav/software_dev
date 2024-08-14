@@ -58,7 +58,7 @@ function NavBar_Marketplace() {
         <div className="bg-tertiary fixed top-0 left-0 right-0 z-50">
             {/* Thin banner with Available text */}
             <div className="bg-primary py-4 h-2 flex justify-center items-center">
-                <span className="text-xs font-semibold text-tertiary">Available on both iOS</span>
+                <span className="text-xs font-semibold text-tertiary">Available on both iOS and Android</span>
             </div>
 
             {/* Thick bar containing logo, name, and apply now button */}

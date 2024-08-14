@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../App.css';
 import { BigButton, ClickOpen, ListDisplay } from '../../components/ButtonsLibrary';
 import Modal from 'react-modal'; // Ensure you have react-modal installed
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { NearYou } from '../../components/NearYou';
 import Slider from 'react-slick';
 import {reviews} from '../../assets/Strings'
@@ -14,22 +14,34 @@ import { Link, animateScroll as scroll, scroller } from 'react-scroll';
 import { refineData } from '../../helperFunctions/basicHelper.js';
 import { UserLoginModal } from '../../helperFunctions/ModalHelpers/UserCreds.js';
 import { fetchGymData } from '../../helperFunctions/MarketplaceHelper.js';
+import MockGymData from '../../data/gymData.js';
 
 function ProductPortfolio () {
     const location = useLocation();
-    console.log('Location : ', location);
-    const data = location.state || {}; // Access the passed data
+    // console.log('Location : ', location);
+    const data = location.state || {}; 
 
-    console.log('Product Portfolio Props : ', data);
+    console.log('params', data.gymID)
     
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const [signInModal, setSignInModal] = useState(false);
     const [gymData, setGymData] = useState(null);
     const [months, setMonths] = useState(1);
+    const [newGymData, setNewGymData] = useState({});
     const [myData, setMyData] = useState({});
 
     const [showPopup, setShowPopup] = useState(false);
+
+    useEffect(()=>{
+        const getGymData = async () => {
+         const result = await MockGymData.filter((item) => item.gymID === data.gymID)
+         setGymData(result[0])
+        } 
+        getGymData()
+     },[])
+
+     console.log('newGymData', newGymData)
 
     const testData = {
         equipmentList: ['Treadmill', 'Dumbbells', 'Bench Press'],
