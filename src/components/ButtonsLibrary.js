@@ -223,7 +223,7 @@ export const ListCard = (props) => {
           </div>
 
           {/* Stars and Reviews at teh top for bigger screens */}
-          {/* {props.stars?
+          {props.stars?
                 <div className="hidden lg:flex flex-col items-end">
                 <div className="text-lg lg:text-3xl text-tertiary font-bold">
                     {[...Array(parseInt(props.rating))].map((_, starIndex) => (
@@ -233,8 +233,8 @@ export const ListCard = (props) => {
                 <p className="text-sm lg:text-xl text-tertiary font-bold">{props.NoOfReview} Reviews</p>
                 </div>
                 :
-                null} */}
-          <StarRating rating={props.rating} NoOfReview={props.NoOfReview} />
+                null}
+          {/* <StarRating rating={props.rating} NoOfReview={props.NoOfReview} /> */}
         </div>
 
         {/* Line */}

@@ -13,6 +13,7 @@ import { fetchAllGyms } from "../../helperFunctions/MarketplaceHelper";
 import FitnessTypeDropDown from "../../components/dropDown/FitnessTypeDropDown";
 import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import LocationDropDown from "../../components/dropDown/LocationDropDown";
 
 function Marketplace() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -86,6 +87,7 @@ function Marketplace() {
                 placeholder="Select Location"
                 className="w-full h-10 px-4 rounded-xl bg-tertiary text-primary focus:border-4 focus:border-secondary placeholder-color custom-input"
               />
+               {/* <LocationDropDown setLocation={setLocation} /> */}
             </div>
             <div
               className="mb-4 w-3/4 flex w-1/2 rounded-2xl flex-col"

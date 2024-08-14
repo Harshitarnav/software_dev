@@ -55,7 +55,7 @@ export const NearYou = (props) => {
     if (props.heading.includes("BLOG")) {
       navigate("/BlogList");
     } else {
-      navigate(`/listing?location=${props.locationParam}`, {state: propToPass});
+      navigate(`/listing?location=${props.locationParam}`);
     }
   };
 

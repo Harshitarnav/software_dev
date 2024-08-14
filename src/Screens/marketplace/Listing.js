@@ -16,20 +16,19 @@ function Listing() {
   const queryParams = new URLSearchParams(Gymlocation.search);
   const locationParam = queryParams.get("location");
   const navigate = useNavigate();
-  const [location, setLocation] = useState(locationParam || '');
-  const [filter, setFilter] = useState('Gyms/Fitness Centres');
-
-
+  const [location, setLocation] = useState(locationParam || "");
+  const [filter, setFilter] = useState("Gyms/Fitness Centres");
+  const [sort, setSort] = useState("noSort");
 
   const props = {
     city: locationParam,
   };
-  
 
   useEffect(() => {
-    setLocation(locationParam || '');
+    setLocation(locationParam || "");
   }, [locationParam]);
 
+  console.log(sort)
 
   const itemsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,17 +47,16 @@ function Listing() {
     setFilter(event.target.value);
   };
 
-  const filteredData = MockGymData
-    .filter((card) => card.city === props.city)
-    .sort((a, b) => {
-      if (filter === 'Ratings: Low to High') {
-        return a.rating - b.rating;
-      } else if (filter === 'Ratings: High to Low') {
-        return b.rating - a.rating;
-      }
-      return 0;
-    });
-
+  const filteredData = MockGymData.filter(
+    (card) => card.city === props.city
+  ).sort((a, b) => {
+    if (sort === "lowToHigh") {
+      return a.rating - b.rating;
+    } else if (sort === "highToLow") {
+      return b.rating - a.rating;
+    }
+    return 0;
+  });
 
   const currentItems =
     cityGymList !== null &&
@@ -97,7 +95,10 @@ function Listing() {
             placeholder="Search for gyms, fitness classes, sports"
             className="w-full h-12 border-2 border-secondary rounded-lg px-4"
           />
-          <button onClick={()=>navigate(`/listing?location=${location}`)} class="bg-primary text-white py-2 px-4 rounded-lg shadow-md hover:bg-secondary focus:outline-none focus:ring-opacity-50 transition duration-300 ease-in-out">
+          <button
+            onClick={() => navigate(`/listing?location=${location}`)}
+            class="bg-primary text-white py-2 px-4 rounded-lg shadow-md hover:bg-secondary focus:outline-none focus:ring-opacity-50 transition duration-300 ease-in-out"
+          >
             Search
           </button>
         </div>
@@ -153,10 +154,14 @@ function Listing() {
           </div>
 
           <div class="relative">
-            <select class="block w-full bg-bg text-white border border-gray-300 rounded-lg py-2 px-4 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-              <option value="Gyms/Fitness Centres">Select Filter</option>
-              <option value="Fitness Classes">Ratings: Low to High</option>
-              <option value="Sports">Ratings: High to Low</option>
+            <select
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
+              className="block w-full bg-bg text-white border border-gray-300 rounded-lg py-2 px-4 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            >
+              <option value="noSort">Select Filter</option>
+              <option value="lowToHigh">Ratings: Low to High</option>
+              <option value="highToLow">Ratings: High to Low</option>
             </select>
             <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
               <svg
@@ -192,7 +197,7 @@ function Listing() {
             </p>
             <div className="">
               <div className="flex flex-wrap">
-                {MockGymData.filter((card) => card.city === props.city).map(
+                {filteredData.filter((card) => card.city === props.city).map(
                   (card, index) => (
                     <ListCard
                       key={index}

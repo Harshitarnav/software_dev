@@ -5,7 +5,7 @@ const MockGymData = [
         "name": "FitMax",
         "gymDisplayName": "FitMax Noida",
         "location": "Noida",
-        "rating": 4.5,
+        "rating": 2.4,
         "NoOfReview": 150,
         "locality": "Sector 62",
         "image": [
@@ -33,7 +33,8 @@ const MockGymData = [
         "address": "B-12, Sector 62",
         "owner": "Rajesh",
         "logo": "https://drive.google.com/uc?id=2fitMaxLogoNoida",
-        "quarterlyPrice": "15000"
+        "quarterlyPrice": "15000",
+        "services": ["Cardio", "Strength Training", "Crossfit", "Yoga"]
     },
     {
         "city": "ghaziabad",
@@ -69,7 +70,8 @@ const MockGymData = [
         "address": "C-25, Indirapuram",
         "owner": "Anita",
         "logo": "https://drive.google.com/uc?id=3PowerZoneLogoGzb",
-        "quarterlyPrice": "18000"
+        "quarterlyPrice": "18000",
+        "services": ["Cardio", "Strength Training", "Crossfit", "Yoga"]
     },
     {
         "city": "noida",
@@ -105,7 +107,45 @@ const MockGymData = [
         "address": "D-45, Sector 18",
         "owner": "Vikram",
         "logo": "https://drive.google.com/uc?id=4IronCladLogoNoida",
-        "quarterlyPrice": "14000"
+        "quarterlyPrice": "14000",
+        "services": ["Cardio", "Strength Training", "Crossfit", "Yoga"]
+    },
+    {
+        "city": "noida",
+        "gymName": "abcdGym",
+        "name": "ABCD Gym",
+        "gymDisplayName": "ABCD Gym",
+        "location": "Noida",
+        "rating": 3.8,
+        "NoOfReview": 90,
+        "locality": "Sector 18",
+        "image": [
+            "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        ],
+        "phoneNumber": "+919999888777",
+        "closingTime": "23:00",
+        "cityDisplayName": "Noida",
+        "openingTime": "06:30",
+        "status": true,
+        "email": "support@ironcladnoida.com",
+        "halfYearlyPrice": "24000",
+        "dailyPrice": "600",
+        "SumOfReviews": 378,
+       "Portfolio": [
+            "https://t4.ftcdn.net/jpg/03/17/72/47/360_F_317724775_qHtWjnT8YbRdFNIuq5PWsSYypRhOmalS.jpg",
+            "https://t4.ftcdn.net/jpg/03/17/72/47/360_F_317724775_qHtWjnT8YbRdFNIuq5PWsSYypRhOmalS.jpg"
+        ],
+        "country": "India",
+        "yearlyPrice": "42000",
+        "codeName": "abcd",
+        "pinCode": "201301",
+        "monthlyPrice": "5500",
+        "gymID": "1pqrXYZ345stuABCFNoida",
+        "address": "D-45, Sector 18",
+        "owner": "Vikram",
+        "logo": "https://drive.google.com/uc?id=4IronCladLogoNoida",
+        "quarterlyPrice": "14000",
+        "services": ["Cardio", "Strength Training", "Crossfit", "Yoga"]
     }
 ]
 
