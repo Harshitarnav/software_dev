@@ -19,6 +19,7 @@ import { getLocation } from './helperFunctions/MarketplaceHelper';
 import TCPage from './Screens/TCPage';
 import Careers from './Screens/careers';
 import PPPage from './Screens/PPPage';
+import FitnesCenter from './Screens/marketplace/FitnesCenter';
 
 function App() {
     const location = useLocation();
@@ -52,7 +53,8 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/Marketplace" element={<Marketplace />} />
                 <Route path="/Listing" element={<Listing />} />
-                <Route path="/ProductPortfolio" element={<ProductPortfolio />} />
+                <Route path="/ProductPortfolio/:id" element={<ProductPortfolio />} />
+                <Route path="/fitnes-center" element={<FitnesCenter />} />
                 <Route path="/BlogList" element={<BlogList />} />
                 <Route path="/BlogPost" element={<BlogPost />} />
                 <Route path="/TCPage" element={<TCPage />} />
